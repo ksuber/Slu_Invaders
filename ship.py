@@ -11,6 +11,17 @@ class Ship():
         #Starts new ship at the bottom center of screen
         self.rect.centerx = self.screen_rect.centerx
         self.rect.bottom = self.screen_rect.bottom
+        #Movement Flag
+        self.moving_right = False
+        self.moving_left = False
+
+    def update(self):
+        """ moves ship based on movement flags"""
+        if self.moving_right:
+            self.rect.centerx += 1
+        if self.moving_left:
+            self.rect.centerx -= 1
+            
 
     def blitme(self):
         """Draw the ship at the current location"""
