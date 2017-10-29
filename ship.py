@@ -1,8 +1,10 @@
 import pygame
+from pygame.sprite import Sprite
 
-class Ship():
+class Ship(Sprite):
     def __init__(self, si_settings, screen):
         """Initializes the ship and it's starting position"""
+        super(Ship,self).__init__()
         self.screen = screen
         self.si_settings = si_settings
         #Loads ship image and get it's rectangle
@@ -23,7 +25,9 @@ class Ship():
         if self.moving_left and self.rect.left > 0:
             self.rect.centerx -= self.si_settings.ship_speed_factor
 
-
+    def center_ship(self):
+        """Centers the ship """
+        self.center = self.screen_rect.centerx
 
     def blitme(self):
         """Draw the ship at the current location"""
